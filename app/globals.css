@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-orange: #D9531E;
+  --color-dark-orange-deep: #A73809;
+  --color-dark-violet: #260B3C;
+  --color-dark-violet-soft: #3B1259;
+  --color-bg-white: #FFFFFF;
+  --color-bg-surface: #F8F9FC;
+  --color-bg-subtle: #F1F3F9;
+  --color-text-black: #09090B;
+  --color-text-muted: #52525B;
+  --color-text-dim: #71717A;
+  --color-card-border: rgba(0, 0, 0, 0.08);
+
+  --font-orbitron: var(--font-orbitron), system-ui, -apple-system, sans-serif;
+  --font-rajdhani: var(--font-rajdhani), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --dark-orange: #D9531E;
+  --dark-orange-deep: #A73809;
+  --dark-violet: #260B3C;
+  --bg-white: #FFFFFF;
+  --bg-surface: #F8F9FC;
+  --text-black: #09090B;
+  --text-muted: #52525B;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #FFFFFF;
+  color: #09090B;
+  font-family: var(--font-rajdhani), system-ui, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  color: #09090B;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F3F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9531E;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A73809;
+}
+
+/* 3D Perspective Card Deck Container */
+.card-deck-perspective {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Professional Card Shuffle Base Style */
+.shuffle-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  transform-origin: center bottom;
+  will-change: transform, opacity, box-shadow;
+  position: relative;
+  overflow: hidden;
+}
+
+.shuffle-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #D9531E, #260B3C, transparent);
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shuffle-card:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle Architectural Grid */
+.light-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Focus styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--dark-orange);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
